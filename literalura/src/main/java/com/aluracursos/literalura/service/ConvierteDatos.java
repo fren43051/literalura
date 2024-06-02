@@ -2,7 +2,9 @@ package com.aluracursos.literalura.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ConvierteDatos implements IConvierteDatos{
 
     private ObjectMapper mapper = new ObjectMapper();
@@ -12,7 +14,7 @@ public class ConvierteDatos implements IConvierteDatos{
         try {
             return mapper.readValue(json, clase);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error al convertir JSON a objeto: " + e.getMessage(), e);
         }
     }
 }
