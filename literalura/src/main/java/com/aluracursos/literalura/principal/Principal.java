@@ -99,7 +99,9 @@ public class Principal {
                     System.out.println("Introduzca un título válido.");
                     continue;
                 }
-                String url = URL_BASE + URLEncoder.encode(titulo, StandardCharsets.UTF_8);
+                // Convertir el título a minúsculas
+                String tituloCodificado = titulo.toLowerCase().replace(" ", "+");
+                String url = URL_BASE + tituloCodificado;
 
                 json = consumoApi.get(url);
                 System.out.println(json);
@@ -335,4 +337,5 @@ public class Principal {
             System.out.println("Los libros registrados en el idioma " + idiomaSeleccionado + " son:");
             librosPorIdioma.forEach(libro -> System.out.println(libro));
         }
-    }}
+    }
+}
