@@ -104,7 +104,7 @@ public class Principal {
                 String url = URL_BASE + tituloCodificado;
 
                 json = consumoApi.get(url);
-                System.out.println(json);
+                //System.out.println(json);
 
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = null;
@@ -327,7 +327,7 @@ public class Principal {
         }
 
         // Imprimimos el mensaje inicial
-        System.out.println("Los libros registrados por idioma son:");
+        //System.out.println("Los libros registrados por idioma son:");
 
         // Obtenemos todos los libros del idioma seleccionado por el usuario
         List<Libros> librosPorIdioma = libroRepository.findByIdioma(idiomaSeleccionado);
